@@ -69,8 +69,8 @@ h1 {
 canvas {
     width: 100%;
     max-width: 500px;
-    background: #020617;
-    border: 4px solid #22c55e;
+    background: #415dd9;
+    border: 4px solid #000000;
     border-radius: 16px;
     display: block;
     margin: 0 auto 20px auto;
@@ -90,7 +90,7 @@ canvas {
     border: none;
     border-radius: 12px;
     padding: 12px 16px;
-    background: #22c55e;
+    background: #808902;
     color: #052e16;
     font-weight: bold;
     cursor: pointer;
@@ -100,7 +100,7 @@ canvas {
 .controles button:hover,
 .acciones button:hover {
     transform: scale(1.05);
-    background: #86efac;
+    background: #28a7b3;
 }
 
 .vacio {
