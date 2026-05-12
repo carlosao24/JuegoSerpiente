@@ -4,8 +4,27 @@ const canvas = document.getElementById("canvasJuego");
 const ctx = canvas.getContext("2d");
 
 const TAMANIO_CELDA = 25
+const SERPIENTE = [
+  { x: (canvas.width/2)/TAMANIO_CELDA, y: (canvas.height/2)/TAMANIO_CELDA},
+  { x: ((canvas.width/2)/TAMANIO_CELDA)+1, y: (canvas.height/2)/TAMANIO_CELDA},
+  { x: ((canvas.width/2)/TAMANIO_CELDA)+2, y: (canvas.height/2)/TAMANIO_CELDA},
+  { x: ((canvas.width/2)/TAMANIO_CELDA)+2, y: (canvas.height/2)/TAMANIO_CELDA+1}
+]
 
-function dibujarTableroX(){
+function pintarSerpiente(){
+  let i
+  for(i = 0; i < SERPIENTE.length; i++){
+    let elemento = SERPIENTE[i]
+    // Cuerpo
+    pintarParte("#8a2b06",elemento.x,elemento.y)
+    if(i==SERPIENTE.length-1){
+      // Cabeza
+      pintarParte("#5EF527",elemento.x,elemento.y)
+    }
+  }
+}
+
+function dibujarTablero(){
   for(let i = 0; i < canvas.width; i+=TAMANIO_CELDA){
     ctx.strokeStyle = "#5EF527"
     ctx.beginPath()
@@ -13,9 +32,6 @@ function dibujarTableroX(){
     ctx.lineTo(i,canvas.height)
     ctx.stroke()
   }
-}
-
-function  dibujarTableroY(){
   for(let i = 0; i < canvas.height; i+=TAMANIO_CELDA){
     ctx.strokeStyle = "#5EF527"
     ctx.beginPath()
@@ -38,20 +54,14 @@ function limpiarCanvas() {
 
 function dibujarTodo() {
   limpiarCanvas()
-  dibujarTableroX()
-  dibujarTableroY()
-  pintarParte(5,1)
-  pintarParte(10,2)
-  pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA);
-  pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.height/2)/TAMANIO_CELDA)
-  pintarParte(0,(canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA)
-  pintarParte((canvas.height - TAMANIO_CELDA) / TAMANIO_CELDA, 0);
+  dibujarTablero()
+  pintarSerpiente()
 }
 
-function pintarParte(lineaX,lineaY){
+function pintarParte(color,lineaX,lineaY){
   let valorX = lineaX * TAMANIO_CELDA
   let valorY = lineaY * TAMANIO_CELDA
-  ctx.fillStyle = "#5EF527"
+  ctx.fillStyle = color
   ctx.fillRect(valorX,valorY,TAMANIO_CELDA,TAMANIO_CELDA)
   ctx.strokeStyle = "black"
   ctx.strokeRect(valorX,valorY,TAMANIO_CELDA,TAMANIO_CELDA)
