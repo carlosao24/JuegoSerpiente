@@ -40,7 +40,20 @@ function dibujarTodo() {
   limpiarCanvas()
   dibujarTableroX()
   dibujarTableroY()
+  pintarParte(5,1)
+  pintarParte(10,2)
+  pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA);
+  pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.height/2)/TAMANIO_CELDA)
+  pintarParte(0,(canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA)
 }
 
+function pintarParte(lineaX,lineaY){
+  let valorX = lineaX * TAMANIO_CELDA
+  let valorY = lineaY * TAMANIO_CELDA
+  ctx.fillStyle = "#5EF527"
+  ctx.fillRect(valorX,valorY,TAMANIO_CELDA,TAMANIO_CELDA)
+  ctx.strokeStyle = "black"
+  ctx.strokeRect(valorX,valorY,TAMANIO_CELDA,TAMANIO_CELDA)
+}
 
 
