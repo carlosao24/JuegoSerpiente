@@ -45,6 +45,7 @@ function dibujarTodo() {
   pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA);
   pintarParte((canvas.height-TAMANIO_CELDA)/TAMANIO_CELDA, (canvas.height/2)/TAMANIO_CELDA)
   pintarParte(0,(canvas.width-TAMANIO_CELDA)/TAMANIO_CELDA)
+  pintarParte((canvas.height - TAMANIO_CELDA) / TAMANIO_CELDA, 0);
 }
 
 function pintarParte(lineaX,lineaY){
