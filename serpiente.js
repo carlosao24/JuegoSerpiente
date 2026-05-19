@@ -135,7 +135,7 @@ function moverSerpiente(){
   if(direccionActual == "izquierda"){
     moverIzquierda()
   }
-  if(direccionActual == "arriba"){
+  if(direccionActual == "arriba" ){
     moverArriba()
   }
   if(direccionActual == "abajo"){
@@ -198,6 +198,18 @@ function verificarNivel(){
 }
 
 function cambiarDireccion(nuevaDireccion){
+  if(direccionActual == "derecha" && nuevaDireccion == "izquierda"){
+    return
+  }
+  if(direccionActual == "izquierda" && nuevaDireccion == "derecha"){
+    return
+  }
+  if(direccionActual == "arriba" && nuevaDireccion == "abajo"){
+    return
+  }
+  if(direccionActual == "abajo" && nuevaDireccion == "arriba"){
+    return
+  }
   direccionActual = nuevaDireccion
 }
 function iniciarJuego(){
